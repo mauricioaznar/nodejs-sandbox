@@ -8,8 +8,7 @@
     "dev": "env-cmd -f config/.env ts-node-dev src/index.ts",
     "postinstall": "tsc && rm -v -rf src",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "git add . && git commit -m \"Heroku\" && git push && git push heroku HEAD:master",
-    "push": "git push && git push heroku HEAD:master"
+    "deploy": "git add . && git commit -m \"Heroku\" && git push && git push heroku HEAD:master"
   },
   "author": "",
   "license": "ISC",
