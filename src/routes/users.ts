@@ -3,9 +3,9 @@ import express, {Request, Response} from 'express'
 const userRoutes = express.Router()
 
 userRoutes.post(
-    '/users',
+    '/users/signIn',
     async (req: Request, res: Response) => {
-        res.send('user created')
+        res.send({token: 'token random'})
     }
 )
 

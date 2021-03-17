@@ -8,8 +8,8 @@
     "dev": "env-cmd -f config/.env ts-node-dev src/index.ts",
     "postinstall": "tsc && rm -v -rf src",
     "commit": "git add . && git commit -m \"Heroku\"",
-    "deploy:origin": "git push",
-    "deploy:heroku": "git push heroku HEAD:master"
+    "push": "git push",
+    "push:heroku": "git push heroku HEAD:master"
   },
   "author": "",
   "license": "ISC",
