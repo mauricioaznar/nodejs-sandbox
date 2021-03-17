@@ -1,17 +1,26 @@
-import express, {Request, Response} from 'express'
-import {json} from "body-parser";
+import mongoose from "mongoose";
+import app from './app'
 
-const app = express()
+const start = async () => {
+    console.log('starting....')
 
-app.use(json())
+    if (!process.env.MONGO_URI) {
+        throw new Error('MONGO_URI must be defined')
+    }
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello world!')
-})
+    try {
+        await mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true
+        })
+    } catch (e) {
+        console.error(e)
+    }
 
-const port = process.env.PORT || 3000
+    app.listen(3000, () => {
+        console.log('Listening on port 3000')
+    })
+}
 
-app.listen(port, () => {
-    console.log('Listening on port 3000')
-})
-
+start()
