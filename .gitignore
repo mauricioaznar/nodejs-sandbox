@@ -1,3 +1,4 @@
 node_modules
 dist
 main-sandbox/src/config/.env
+typeorm-sandbox/src/config/.env

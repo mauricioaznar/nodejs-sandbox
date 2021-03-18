@@ -3,13 +3,11 @@ import {json} from "body-parser";
 import {postRoutes} from "./routes/posts";
 import {userRoutes} from "./routes/users";
 import {errorHandler} from "./middlewares/error-handler";
-import {currentUser} from "./middlewares/current-user";
+
 
 const app = express()
 
 app.use(json())
-
-app.use(currentUser)
 
 app.use(postRoutes)
 app.use(userRoutes)

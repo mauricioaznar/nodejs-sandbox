@@ -1,13 +1,13 @@
 import "reflect-metadata";
-import {createConnection, getRepository} from "typeorm";
-import {Users} from "./entity/Users";
+import {createConnection} from "typeorm";
+import app from "./app";
+
+if (!process.env.JWT_KEY) {
+    throw new Error('JWT_KEY must be defined')
+}
 
 createConnection().then(async () => {
-    console.log("Loading users from the database...");
-    const userRepository = getRepository(Users);
-    const users = await userRepository.find({ relations: ["branch"] });
-    console.log("Loaded users: ", users);
-
-    console.log("Here you can setup and run express/koa/any other framework.");
-
+    app.listen(3000, () => {
+        console.log('listening on port 3000')
+    })
 }).catch(error => console.log(error));
