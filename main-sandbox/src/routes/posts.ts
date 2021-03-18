@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express'
 import {Post} from "../models/post";
-import {validationResult, body, param} from "express-validator";
+import {body, param} from "express-validator";
 import {validateRequest} from "../middlewares/validate-request";
 
 const postRoutes = express.Router()
@@ -40,7 +40,7 @@ postRoutes.get(
             throw new Error('Post not found')
         }
 
-        const result = await post.hasName('a name')
+        // const result = await post.hasName('a name')
 
         res.send(params)
     }
