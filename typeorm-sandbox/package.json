@@ -5,7 +5,9 @@
    "main": "src/index.ts",
    "scripts": {
       "start": "ts-node src/index.ts",
-      "dev": "env-cmd -f src/config/.env ts-node-dev src/index.ts"
+      "dev": "env-cmd -f src/config/.env ts-node-dev src/index.ts",
+      "migration:create": "ts-node-dev ./node_modules/typeorm/cli.js migration:create -n",
+      "migration:run": "ts-node-dev ./node_modules/typeorm/cli.js migration:run"
    },
    "author": "",
    "license": "ISC",

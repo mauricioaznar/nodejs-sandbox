@@ -38,7 +38,6 @@ userRoutes.post(
             });
         if (!user) {
             throw new BadRequestError('Invalid credentials')
-            return
         }
         let storedPassword = user.password
         if (user.password.match(/^\$2y(.+)$/i)) {
